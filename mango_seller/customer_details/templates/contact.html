@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block MainBlock %}
+
+<div style="margin:80px">
+    <h1>Contact us</h1>
+    <p>
+        Please write your name, Phone Number and a message below if you have any questions or order.
+        One of our staff members will be happy to contact you directly and answer your questions as soon as possible.
+    </p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleInputEmail1">Full Name</label>
+            {{form.Name}}
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Phone Number</label>
+            {{form.contact_number}}
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Message</label>
+            {{form.message}}
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <!-- <p>__________________________________________________________________________________OR_______________________________________________________________________
+    </p> -->
+
+</div>
+{% endblock MainBlock %}

@@ -1,0 +1,63 @@
+{% extends "base.html" %} {% load bootstrap3 %} {% block MainBlock %}
+<script type="text/javascript" language="javascript">
+  $(document).ready(function () {
+    // Get value on keyup funtion
+    $("#amount1, #amount2").keyup(function () {
+
+      var total = 0;
+      var x = Number($("#amount1").val());
+      var y = Number($("#amount2").val());
+      var output = x * y;
+
+      $('#output').val(output);
+
+
+    });
+  });
+</script>
+
+<div class="container">
+  <div class="jumbotron">
+    <h2 style="text-align: center">Add Customer</h2>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="exampleInputEmail1">Name</label>
+        {{form.Name}}
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputPassword1">Mobile Number</label>
+        {{form.Phone}}
+      </div>
+
+      <div class="form-group">
+        <label for="Buy_Kgs">Kgs</label>
+        {{form.Buy_kgs}}
+      </div>
+
+      <div class="form-group">
+        <label for="Extra_Kgs">Extra</label>
+        {{form.extra_kgs}}
+      </div>
+
+      <div class="form-group">
+        <label for="Rate">Rate</label>
+        {{form.Rate}}
+      </div>
+
+      <div class="form-group">
+        <label for="Rate">Total Amount</label>
+        {{form.Bill}}
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">Payment Mode</label>
+        {{form.Pending}}
+      </div>
+
+      <input type="Submit" />
+    </form>
+  </div>
+</div>
+{% endblock MainBlock %}

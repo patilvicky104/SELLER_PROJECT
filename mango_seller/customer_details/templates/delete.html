@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block MainBlock %}
+
+<br>
+<br>
+<p>Want to delete this item {{ item }} ?</p>
+
+<form action="{% url 'delete' item.id %}" method="POST">
+    {% csrf_token %}
+    <a href="{% url 'Customer_List' %}">cancel</a>
+    <input type="submit" value="Confirm">
+
+</form>
+
+
+{% endblock MainBlock %}

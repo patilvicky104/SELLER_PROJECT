@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block MainBlock %}
+<h1>List of customers</h1>
+
+<a class="btn btn-primary btn-sm" href="{% url 'Customer_Form' %}">Add Customer</a>
+<table class="table mb-0">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone Number</th>
+      <th>Date</th>
+      <th>Kgs</th>
+      <th>Extra Kgs</th>
+      <th>Rate</th>
+      <th>Bill</th>
+      <th></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in data %}
+    <tr>
+      <td><a href="{% url 'update' item.id %}">{{ item.Name }}</a></td>
+      <td>{{ item.Phone }}</td>
+      <td>{{ item.Date }}</td>
+      <td>{{ item.Buy_kgs}}</td>
+      <td>{{ item.extra_kgs}}</td>
+      <td>{{ item.Rate }}</td>
+      <td>{{ item.Bill }}</td>
+      <td>{{ item.Pending }}</td>
+      <td>
+        <a href="{% url 'delete' item.id %}" class="btn btn-primary btn-sm"> Delete </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a class="btn btn-primary btn-sm" href="{% url 'Excel' %}">Download As Excel</a>
+{% endblock MainBlock %}
